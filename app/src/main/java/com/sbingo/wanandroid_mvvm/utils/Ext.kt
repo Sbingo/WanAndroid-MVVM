@@ -18,8 +18,8 @@ fun <T> Observable<T>.async(): Observable<T> {
 fun <T> Observable<T>.asyncSubscribe(onNext: (T) -> Unit, onError: (Throwable) -> Unit) {
     this.async()
         .subscribe(object : RxHttpObserver<T>() {
-            override fun onNext(it: T) {
-                super.onNext(it)
+
+            override fun success(it: T) {
                 onNext(it)
             }
 

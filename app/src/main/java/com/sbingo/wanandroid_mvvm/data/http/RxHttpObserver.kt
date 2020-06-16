@@ -35,8 +35,12 @@ abstract class RxHttpObserver<T> : Observer<T> {
                     }
                 )
             )
+        } else {
+            success(it)
         }
     }
+
+    abstract fun success(it: T)
 
     override fun onComplete() {
     }
